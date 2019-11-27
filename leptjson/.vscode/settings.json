@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "*.py": "python",
-        "leptjson.h": "c"
+        "leptjson.h": "c",
+        "assert.h": "c",
+        "stdio.h": "c"
     }
 }

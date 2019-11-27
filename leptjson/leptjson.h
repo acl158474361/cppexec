@@ -10,6 +10,7 @@ enum {
 };
 typedef struct {
     lept_type type;
+    double n;
 }lept_value;
 
 
