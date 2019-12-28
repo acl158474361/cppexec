@@ -11,12 +11,12 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}",
-                "-lpthread",
+                "${fileDirname}/${fileBasenameNoExtension}"
+                
                 
             ],
             "options": {
-                "cwd": "/home/icecream/myapue/signals"
+                "cwd": "/home/icecream/cppexec"
             },
             "problemMatcher": [
                 "$gcc"
