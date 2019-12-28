@@ -55,7 +55,7 @@ inline ThreadPool::ThreadPool(size_t threads)
                         std::unique_lock<std::mutex> lock(this->queue_mutex);
                         this->condition.wait(lock,
                             [this]{ return this->stop || !this->tasks.empty(); });
-                        if(this->stop && this->tasks.empty())
+                        if(this->stop && this->tasks.empty()) //stop后仍旧把之后的任务全部完成
                             return;
                         task = std::move(this->tasks.front());  //使用移动构造函数
                         this->tasks.pop();

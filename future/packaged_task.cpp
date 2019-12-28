@@ -30,8 +30,21 @@ void task_thread(){
     task_td.join();
     printf("task_lambda\t%d\n", result.get());
 }
+
+void thr_f1(){
+    std::this_thread::sleep_for(std::chrono::seconds(3));
+    for(int i = 0; i < 10; ++i){
+        printf("%d\n", i);
+    }
+}
+
 int main(void){
     task_lambda();
     task_bind();
     task_thread();
+    std::thread thr(thr_f1);
+    std::thread thr1(std::move(thr));
+    printf("%d\n", thr.joinable());
+    printf("%d\n", thr1.joinable());
+    thr1.join();
 }
