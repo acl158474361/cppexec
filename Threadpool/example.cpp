@@ -24,7 +24,7 @@ int main()
         );
     }
     
-    pool.all_join();
+    pool.pool_stop();
     
     for(auto &&result : results){
             std::cout << result.get() <<std::endl;

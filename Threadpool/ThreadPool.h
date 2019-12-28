@@ -19,7 +19,7 @@ public:
     auto enqueue(F&& f, Args&&... args) 
         -> std::future<typename std::result_of<F(Args...)>::type>;
     ~ThreadPool();
-    void all_join();
+    void pool_stop();
 private:
     // need to keep track of threads so we can join them
     std::vector< std::thread > workers;
@@ -103,19 +103,24 @@ inline ThreadPool::~ThreadPool()
     }
     condition.notify_all();
     for(std::thread &worker: workers){
-        if(worker.joinable())
-        worker.join();
+        if(worker.joinable()){
+            worker.join();
+        }
     }
 }
 
-inline void ThreadPool::all_join(){
+inline void ThreadPool::pool_stop(){
     {
         std::unique_lock<std::mutex> lock(queue_mutex);
         stop = true;
     }
-    condition.notify_all();
-    for(std::thread &worker: workers)
-        worker.join();
+    condition.notify_all(); //如果不stop就join那么线程会一直卡在condition.wait
+    for(std::thread &worker: workers){
+        if(worker.joinable()){
+            worker.join();
+        }
+    }
+        
 }
 
 #endif
