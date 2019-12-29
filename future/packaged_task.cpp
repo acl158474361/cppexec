@@ -11,7 +11,9 @@ int f(int x, int y) { return std::pow(x, y); }
 void task_lambda(){
     std::packaged_task<int(int, int)> task([](int a, int b) ->int { return std::pow(a,b); });
     std::future<int> result = task.get_future();
-    task(2,9);
+    std::function<int(int, int)> func(f);
+    task(2, 9);
+    printf("func\t%d\n", func(2, 9));
     printf("task_lambda\t%d\n", result.get());
 }
 
