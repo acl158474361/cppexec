@@ -73,6 +73,8 @@
         "iterator": "cpp",
         "ratio": "cpp",
         "future": "cpp",
-        "mutex": "cpp"
+        "mutex": "cpp",
+        "event.h": "c",
+        "event-config.h": "c"
     }
 }
