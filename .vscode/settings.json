@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.py": "python",
+        "*.h": "c",
         "apue.h": "c",
         "unistd.h": "c",
         "wait.h": "c",
@@ -75,6 +76,7 @@
         "future": "cpp",
         "mutex": "cpp",
         "event.h": "c",
-        "event-config.h": "c"
+        "event-config.h": "c",
+        "STRCAT.c": "c"
     }
 }
