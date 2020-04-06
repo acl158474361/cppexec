@@ -1,10 +1,10 @@
 {
     "configurations": [
         {
-           
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**","/home/icecream/myapue/include"
+                "${workspaceFolder}/**"
+                
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",
